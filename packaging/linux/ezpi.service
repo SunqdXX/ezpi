@@ -1,0 +1,32 @@
+[Unit]
+Description=EzPi local DPI bypass
+Documentation=man:nft(8)
+After=network.target nss-lookup.target
+StartLimitIntervalSec=30
+StartLimitBurst=5
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/ezpi -daemon -config /etc/ezpi/config.json
+
+# Belt and braces. The nftables owner flag already makes the kernel delete the
+# ruleset the moment this process dies, so this only matters on a kernel that
+# refused the flag. Leading "-" so a missing table is not an error.
+ExecStopPost=-/usr/bin/nft delete table ip ezpi
+
+Restart=on-failure
+RestartSec=2
+
+NoNewPrivileges=yes
+ProtectHome=yes
+ProtectSystem=strict
+PrivateTmp=yes
+ProtectControlGroups=yes
+ProtectKernelLogs=yes
+RestrictSUIDSGID=yes
+RestrictRealtime=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_NETLINK AF_UNIX
+LockPersonality=yes
+
+[Install]
+WantedBy=multi-user.target
