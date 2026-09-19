@@ -1,0 +1,14 @@
+# Gradle / Android build outputs
+.gradle/
+build/
+*/build/
+local.properties
+*.apk
+*.aab
+
+# gomobile-built engine library (regenerate with gomobile bind — see README)
+*.aar
+
+# probe test binary (regenerate: go build in probe/)
+probe/probe
+*.jar
