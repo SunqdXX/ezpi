@@ -1,0 +1,22 @@
+# Built binary
+daemon/ezpi
+daemon/ezpid
+
+# Editor / OS noise
+*.bak
+*.bak-*
+*~
+.DS_Store
+__pycache__/
+*.pyc
+dist/
+
+# Built binary at the repo root (make build)
+/ezpi
+
+# Local Android build environment helper
+/android-env.sh
+
+# Windows build output
+/windows/target/
+/windows/target-test/

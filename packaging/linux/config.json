@@ -1,0 +1,17 @@
+{
+  "listen_port": 8443,
+  "target_port": 443,
+  "skip_interfaces": [
+    "lo",
+    "proton0"
+  ],
+  "strategy": "auto",
+  "handshake_timeout_sec": 5,
+  "dial_timeout_sec": 10,
+  "selftest_hosts": [
+    "www.roblox.com",
+    "apis.roblox.com",
+    "gateway.discord.gg"
+  ],
+  "engine": "auto"
+}
