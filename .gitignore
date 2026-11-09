@@ -16,3 +16,7 @@ dist/
 
 # Local Android build environment helper
 /android-env.sh
+
+# Windows build output
+/windows/target/
+/windows/target-test/
